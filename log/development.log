@@ -1,0 +1,187 @@
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.028000)[0m   [0;1mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.001000)[0m   [0mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateAddressbooks (1)
+  [4;36;1mSQL (0.004000)[0m   [0;1mCREATE TABLE `addressbooks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `FirstName` varchar(255) DEFAULT NULL, `LastName` varchar(255) DEFAULT NULL, `AddressLine1` varchar(255) DEFAULT NULL, `AddressLine2` varchar(255) DEFAULT NULL, `AddrssLine3` varchar(255) DEFAULT NULL, `Phone` varchar(255) DEFAULT NULL, `Description` text DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.021000)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+  [4;35;1mSQL (0.015000)[0m   [0mdescribe `addressbooks`[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mSHOW KEYS FROM `addressbooks`[0m
+
+
+Processing AddressbooksController#index (for 127.0.0.1 at 2011-01-06 14:12:11) [GET]
+  Session ID: 3f3f4c6c8040bba079090f13e6a1259a
+  Parameters: {"action"=>"index", "controller"=>"addressbooks"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAddressbook Load (0.001000)[0m   [0;1mSELECT * FROM `addressbooks` [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/index
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.00900 (44%) | DB: 0.00100 (4%) | 200 OK [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#new (for 127.0.0.1 at 2011-01-06 14:12:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--27f3e6b82dbf479615bb053f98ddacf4709a09a4
+  Parameters: {"action"=>"new", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/new
+Completed in 0.07400 (13 reqs/sec) | Rendering: 0.01100 (14%) | DB: 0.00300 (4%) | 200 OK [http://localhost/addressbooks/new]
+
+
+Processing AddressbooksController#create (for 127.0.0.1 at 2011-01-06 14:12:54) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"032e8f34cf13fba9bbc1a6f04b2e5927cea37ec7", "action"=>"create", "controller"=>"addressbooks", "addressbook"=>{"AddressLine1"=>"8 Hartwell Green", "AddressLine2"=>"Kill", "AddrssLine3"=>"Kildare", "Phone"=>"0859106322", "FirstName"=>"Paul", "LastName"=>"O'Brien", "Description"=>"Paul is a student in the D.I.T"}}
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mAddressbook Create (0.001000)[0m   [0;1mINSERT INTO `addressbooks` (`updated_at`, `AddressLine1`, `AddressLine2`, `AddrssLine3`, `Phone`, `FirstName`, `LastName`, `Description`, `created_at`) VALUES('2011-01-06 14:12:54', '8 Hartwell Green', 'Kill', 'Kildare', '0859106322', 'Paul', 'O\'Brien', 'Paul is a student in the D.I.T', '2011-01-06 14:12:54')[0m
+  [4;35;1mSQL (0.001000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/addressbooks/1
+Completed in 0.02000 (49 reqs/sec) | DB: 0.00500 (24%) | 302 Found [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#show (for 127.0.0.1 at 2011-01-06 14:12:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIipBZGRyZXNzYm9vayB3YXMgc3VjY2Vzc2Z1bGx5IGNy%0AZWF0ZWQuBjoKQHVzZWR7BjsHVA%3D%3D--da4c6077426524bad4f6bdb0f96a1684565b8b14
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+  [4;35;1mAddressbook Load (0.000000)[0m   [0mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 1) [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/show
+Completed in 0.02200 (45 reqs/sec) | Rendering: 0.00800 (36%) | DB: 0.00300 (13%) | 200 OK [http://localhost/addressbooks/1]
+
+
+Processing AddressbooksController#index (for 127.0.0.1 at 2011-01-06 14:12:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"index", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Load (0.000000)[0m   [0;1mSELECT * FROM `addressbooks` [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/index
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.00700 (34%) | DB: 0.00300 (15%) | 200 OK [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#new (for 127.0.0.1 at 2011-01-06 14:13:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"new", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/new
+Completed in 0.02000 (49 reqs/sec) | Rendering: 0.00800 (40%) | DB: 0.00300 (14%) | 200 OK [http://localhost/addressbooks/new]
+
+
+Processing AddressbooksController#create (for 127.0.0.1 at 2011-01-06 14:14:45) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"032e8f34cf13fba9bbc1a6f04b2e5927cea37ec7", "action"=>"create", "controller"=>"addressbooks", "addressbook"=>{"AddressLine1"=>"QWERTY", "AddressLine2"=>"Typewriter", "AddrssLine3"=>"", "Phone"=>"087xxxxxxx", "FirstName"=>"James", "LastName"=>"Woods", "Description"=>"James is a friend"}}
+  [4;35;1mAddressbook Columns (0.004000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mAddressbook Create (0.001000)[0m   [0mINSERT INTO `addressbooks` (`updated_at`, `AddressLine1`, `AddressLine2`, `AddrssLine3`, `Phone`, `FirstName`, `LastName`, `Description`, `created_at`) VALUES('2011-01-06 14:14:45', 'QWERTY', 'Typewriter', '', '087xxxxxxx', 'James', 'Woods', 'James is a friend', '2011-01-06 14:14:45')[0m
+  [4;36;1mSQL (0.002000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/addressbooks/2
+Completed in 0.02100 (47 reqs/sec) | DB: 0.00700 (33%) | 302 Found [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#show (for 127.0.0.1 at 2011-01-06 14:14:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIipBZGRyZXNzYm9vayB3YXMgc3VjY2Vzc2Z1bGx5IGNy%0AZWF0ZWQuBjoKQHVzZWR7BjsHVA%3D%3D--da4c6077426524bad4f6bdb0f96a1684565b8b14
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mAddressbook Load (0.000000)[0m   [0;1mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 2) [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/show
+Completed in 0.01900 (52 reqs/sec) | Rendering: 0.00500 (26%) | DB: 0.00300 (15%) | 200 OK [http://localhost/addressbooks/2]
+
+
+Processing AddressbooksController#index (for 127.0.0.1 at 2011-01-06 14:14:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"index", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Load (0.000000)[0m   [0mSELECT * FROM `addressbooks` [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/index
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.00700 (35%) | DB: 0.00300 (14%) | 200 OK [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#edit (for 127.0.0.1 at 2011-01-06 14:14:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mAddressbook Load (0.000000)[0m   [0;1mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 1) [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/edit
+Completed in 0.02400 (41 reqs/sec) | Rendering: 0.01000 (41%) | DB: 0.00300 (12%) | 200 OK [http://localhost/addressbooks/1/edit]
+
+
+Processing AddressbooksController#update (for 127.0.0.1 at 2011-01-06 14:15:21) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"032e8f34cf13fba9bbc1a6f04b2e5927cea37ec7", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"addressbooks", "addressbook"=>{"AddressLine1"=>"Location", "AddressLine2"=>"Location", "AddrssLine3"=>"Location", "Phone"=>"0859106322", "FirstName"=>"Paul", "LastName"=>"O'Brien", "Description"=>"Paul is a student in the D.I.T"}}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mAddressbook Load (0.001000)[0m   [0;1mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 1) [0m
+  [4;35;1mSQL (0.000000)[0m   [0mBEGIN[0m
+  [4;36;1mAddressbook Update (0.023000)[0m   [0;1mUPDATE `addressbooks` SET `created_at` = '2011-01-06 14:12:54', `AddressLine2` = 'Location', `AddressLine1` = 'Location', `LastName` = 'O\'Brien', `Description` = 'Paul is a student in the D.I.T', `Phone` = '0859106322', `AddrssLine3` = 'Location', `FirstName` = 'Paul', `updated_at` = '2011-01-06 14:15:21' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.002000)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/addressbooks/1
+Completed in 0.04400 (22 reqs/sec) | DB: 0.02900 (65%) | 302 Found [http://localhost/addressbooks/1]
+
+
+Processing AddressbooksController#show (for 127.0.0.1 at 2011-01-06 14:15:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIipBZGRyZXNzYm9vayB3YXMgc3VjY2Vzc2Z1bGx5IHVw%0AZGF0ZWQuBjoKQHVzZWR7BjsHVA%3D%3D--58763022a85977db2318c0be70f9f3b364234bb3
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+  [4;35;1mAddressbook Load (0.000000)[0m   [0mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 1) [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/show
+Completed in 0.01900 (52 reqs/sec) | Rendering: 0.00500 (26%) | DB: 0.00300 (15%) | 200 OK [http://localhost/addressbooks/1]
+
+
+Processing AddressbooksController#index (for 127.0.0.1 at 2011-01-06 14:15:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"index", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Load (0.000000)[0m   [0;1mSELECT * FROM `addressbooks` [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/index
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.00700 (34%) | DB: 0.00300 (15%) | 200 OK [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#new (for 127.0.0.1 at 2011-01-06 14:15:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"new", "controller"=>"addressbooks"}
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/new
+Completed in 0.02100 (47 reqs/sec) | Rendering: 0.00700 (33%) | DB: 0.00300 (14%) | 200 OK [http://localhost/addressbooks/new]
+
+
+Processing AddressbooksController#create (for 127.0.0.1 at 2011-01-06 14:16:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"032e8f34cf13fba9bbc1a6f04b2e5927cea37ec7", "action"=>"create", "controller"=>"addressbooks", "addressbook"=>{"AddressLine1"=>"Somewhere", "AddressLine2"=>"In ", "AddrssLine3"=>"Kildare", "Phone"=>"085xxxxxxx", "FirstName"=>"Karen", "LastName"=>"xxx", "Description"=>"Karen is my girlfriend"}}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mBEGIN[0m
+  [4;35;1mAddressbook Create (0.000000)[0m   [0mINSERT INTO `addressbooks` (`updated_at`, `AddressLine1`, `AddressLine2`, `AddrssLine3`, `Phone`, `FirstName`, `LastName`, `Description`, `created_at`) VALUES('2011-01-06 14:16:10', 'Somewhere', 'In ', 'Kildare', '085xxxxxxx', 'Karen', 'xxx', 'Karen is my girlfriend', '2011-01-06 14:16:10')[0m
+  [4;36;1mSQL (0.001000)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/addressbooks/3
+Completed in 0.02000 (49 reqs/sec) | DB: 0.00400 (19%) | 302 Found [http://localhost/addressbooks]
+
+
+Processing AddressbooksController#show (for 127.0.0.1 at 2011-01-06 14:16:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIipBZGRyZXNzYm9vayB3YXMgc3VjY2Vzc2Z1bGx5IGNy%0AZWF0ZWQuBjoKQHVzZWR7BjsHVA%3D%3D--da4c6077426524bad4f6bdb0f96a1684565b8b14
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Columns (0.003000)[0m   [0mSHOW FIELDS FROM `addressbooks`[0m
+  [4;36;1mAddressbook Load (0.001000)[0m   [0;1mSELECT * FROM `addressbooks` WHERE (`addressbooks`.`id` = 3) [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/show
+Completed in 0.01900 (52 reqs/sec) | Rendering: 0.00500 (26%) | DB: 0.00400 (21%) | 200 OK [http://localhost/addressbooks/3]
+
+
+Processing AddressbooksController#index (for 127.0.0.1 at 2011-01-06 14:16:13) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMTQzNGQ0YTZmM2QxMjIxZDE5MWRiYmM3ZjQ3ZmUz%0ANDMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5a60e87c9c10d4bdbc301d8c0e8f13e6451edb1d
+  Parameters: {"action"=>"index", "controller"=>"addressbooks"}
+  [4;35;1mAddressbook Load (0.000000)[0m   [0mSELECT * FROM `addressbooks` [0m
+Rendering template within layouts/addressbooks
+Rendering addressbooks/index
+  [4;36;1mAddressbook Columns (0.003000)[0m   [0;1mSHOW FIELDS FROM `addressbooks`[0m
+Completed in 0.02200 (45 reqs/sec) | Rendering: 0.00800 (36%) | DB: 0.00300 (13%) | 200 OK [http://localhost/addressbooks]

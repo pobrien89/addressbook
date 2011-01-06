@@ -1,0 +1,38 @@
+<p>
+  <b>Firstname:</b>
+  <%=h @addressbook.FirstName %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%=h @addressbook.LastName %>
+</p>
+
+<p>
+  <b>Addressline1:</b>
+  <%=h @addressbook.AddressLine1 %>
+</p>
+
+<p>
+  <b>Addressline2:</b>
+  <%=h @addressbook.AddressLine2 %>
+</p>
+
+<p>
+  <b>Addrssline3:</b>
+  <%=h @addressbook.AddrssLine3 %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @addressbook.Phone %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @addressbook.Description %>
+</p>
+
+
+<%= link_to 'Edit', edit_addressbook_path(@addressbook) %> |
+<%= link_to 'Back', addressbooks_path %>

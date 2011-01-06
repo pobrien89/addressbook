@@ -1,0 +1,32 @@
+<h1>Listing addressbooks</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Addressline1</th>
+    <th>Addressline2</th>
+    <th>Addrssline3</th>
+    <th>Phone</th>
+    <th>Description</th>
+  </tr>
+
+<% for addressbook in @addressbooks %>
+  <tr>
+    <td><%=h addressbook.FirstName %></td>
+    <td><%=h addressbook.LastName %></td>
+    <td><%=h addressbook.AddressLine1 %></td>
+    <td><%=h addressbook.AddressLine2 %></td>
+    <td><%=h addressbook.AddrssLine3 %></td>
+    <td><%=h addressbook.Phone %></td>
+    <td><%=h addressbook.Description %></td>
+    <td><%= link_to 'Show', addressbook %></td>
+    <td><%= link_to 'Edit', edit_addressbook_path(addressbook) %></td>
+    <td><%= link_to 'Destroy', addressbook, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New addressbook', new_addressbook_path %>
